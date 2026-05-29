@@ -75,6 +75,13 @@
         enable32Bit = true;
     };
 
+    fileSystems = {
+        "/mnt/storage" = {
+            device = "/dev/nvme1n1p1";
+            fsType = "ext4";
+        };
+    };
+
     system.stateVersion = "25.11";
 
 }

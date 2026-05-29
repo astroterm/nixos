@@ -5,6 +5,7 @@
         fastfetch
         python315
         nixd
+        parted
     ];
 
     programs.git = {

@@ -7,6 +7,8 @@
         vscodium
         nautilus
         file-roller
+        gparted
+        celluloid
     ];
 
     programs.wezterm = {
