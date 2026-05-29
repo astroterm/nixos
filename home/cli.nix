@@ -6,6 +6,7 @@
         python315
         nixd
         parted
+        ffmpeg
     ];
 
     programs.git = {
