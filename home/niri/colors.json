@@ -1,0 +1,19 @@
+{
+  "name": "Nord",
+  "primary": "#88C0D0",
+  "primaryText": "#D8DEE9",
+  "primaryContainer": "#4C566A",
+  "outline": "#88C0D0",
+  "secondary": "#3B4252",
+  "surface": "#2E3440",
+  "surfaceTint": "#88C0D0",
+  "surfaceText": "#D8DEE9",
+  "surfaceVariant": "#81A1C1",
+  "surfaceVariantText": "#D8DEE9",
+  "surfaceContainer": "#2E3440",
+  "surfaceContainerHigh": "#434C5E",
+  "surfaceContainerHighest": "#4C566A",
+  "background": "#3B4252",
+  "backgroundText": "#D8DEE9",
+  "matugen_type": "scheme-tonal-spot"
+}
