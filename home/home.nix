@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-    home.stateVersion = "25.11";
+    home.stateVersion = "26.05";
 
     home.username = "hdo";
     home.homeDirectory = "/home/hdo";
