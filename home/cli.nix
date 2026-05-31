@@ -39,7 +39,7 @@
     programs.yazi = {
         enable = true;
         enableNushellIntegration = true;
-    }
+    };
 
     programs.cargo.enable = true;
 }
