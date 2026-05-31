@@ -19,7 +19,7 @@
                 {
                     home-manager.useGlobalPkgs = true;
                     home-manager.useUserPackages = true;
-                    home-manager.users.hdo = import ./home/main.nix;
+                    home-manager.users.hdo = import ./home/home.nix;
                 }
             ];
         };
