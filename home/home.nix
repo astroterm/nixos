@@ -1,10 +1,11 @@
 { pkgs, ... }:
 
 {
-    home.stateVersion = "26.05";
-
-    home.username = "hdo";
-    home.homeDirectory = "/home/hdo";
+    home = {
+        username = "hdo";
+        homeDirectory = "/home/hdo";
+        stateVersion = "26.05";
+    };
 
     imports = [
         niri/niri.nix
