@@ -46,7 +46,7 @@
         isNormalUser = true;
         description = "Henry Do";
         extraGroups = [ "networkmanager" "wheel" ];
-        packages = with pkgs; [];
+        packages = [];
     };
 
     # Enable flakes

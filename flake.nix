@@ -8,7 +8,7 @@
         };
     };
 
-    outputs = { self, nixpkgs, home-manager, ... }: {
+    outputs = { nixpkgs, home-manager, ... }: {
         nixosConfigurations.neptune = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
 
