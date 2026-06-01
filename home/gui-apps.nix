@@ -9,6 +9,7 @@
         file-roller
         gparted
         celluloid
+        mediawriter
     ];
 
     programs.wezterm = {
