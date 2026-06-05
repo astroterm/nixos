@@ -41,4 +41,6 @@
             obs-vaapi
         ];
     };
+
+    programs.prismlauncher.enable = true;
 }
