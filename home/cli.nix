@@ -7,6 +7,7 @@
         nixd
         parted
         ffmpeg
+        rustup
     ];
 
     programs.git = {
@@ -41,5 +42,5 @@
         enableNushellIntegration = true;
     };
 
-    programs.cargo.enable = true;
+    programs.gcc.enable = true;
 }
