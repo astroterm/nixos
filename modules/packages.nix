@@ -6,4 +6,5 @@
         wezterm
         xwayland-satellite
     ];
+    nix.package = pkgs.lixPackageSets.stable.lix;
 }

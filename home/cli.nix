@@ -8,6 +8,7 @@
         parted
         ffmpeg
         rustup
+        jdk21
     ];
 
     programs.git = {

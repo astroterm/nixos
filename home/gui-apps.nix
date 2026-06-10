@@ -10,6 +10,8 @@
         gparted
         celluloid
         mediawriter
+        handbrake
+        gnome-clocks
     ];
 
     programs.wezterm = {
@@ -42,5 +44,5 @@
         ];
     };
 
-    programs.prismlauncher.enable = true;
+    # programs.prismlauncher.enable = true;
 }
