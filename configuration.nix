@@ -34,13 +34,6 @@
     # Select internationalisation properties.
     i18n.defaultLocale = "en_AU.UTF-8";
 
-
-    # Configure keymap in X11
-    services.xserver.xkb = {
-        layout = "us";
-        variant = "";
-    };
-
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users.hdo = {
         isNormalUser = true;
@@ -62,6 +55,9 @@
 
     # Enable Flatpak
     services.flatpak.enable = true;
+
+    # Enable openrgb
+    services.hardware.openrgb.enable = true;
 
     services.pipewire = {
         enable = true;

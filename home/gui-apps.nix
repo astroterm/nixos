@@ -12,6 +12,7 @@
         mediawriter
         handbrake
         gnome-clocks
+        kdePackages.qt6ct
     ];
 
     programs.wezterm = {
