@@ -8,10 +8,12 @@
     };
 
     imports = [
-        niri/niri.nix
         ./gui-apps.nix
         ./cli.nix
         ./k8s.nix
+        ./neovim.nix
+
+        niri/niri.nix
     ];
 
     home.packages = with pkgs; [

@@ -22,6 +22,11 @@
     # Use latest kernel.
     boot.kernelPackages = pkgs.linuxPackages_latest;
 
+    boot.kernelModules = [
+        "i2c-dev"
+        "i2c-piix4" 
+    ];
+
     networking.hostName = "neptune"; # Define your hostname.
 
 
@@ -57,13 +62,30 @@
     services.flatpak.enable = true;
 
     # Enable openrgb
-    services.hardware.openrgb.enable = true;
+    services.hardware.openrgb = {
+        enable = true;
+        motherboard = "amd";
+    };
 
     services.pipewire = {
         enable = true;
         alsa.enable = true;
         alsa.support32Bit=true;
         pulse.enable=true;
+    };
+
+    security.pam = {
+        u2f = {
+            enable = true;
+            control = "sufficient";
+        };
+        services = {
+            login.u2fAuth = true;
+            greetd.u2fAuth = true;
+            sudo.u2fAuth = true;
+            dms-greeter.u2fAuth = true;
+        };
+
     };
 
     hardware.graphics = {
@@ -73,7 +95,7 @@
 
     fileSystems = {
         "/mnt/storage" = {
-            device = "/dev/nvme1n1p1";
+            device = "/dev/disk/by-uuid/1c9f6257-b126-476b-bda9-73634984dd81";
             fsType = "ext4";
         };
     };

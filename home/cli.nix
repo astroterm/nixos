@@ -9,6 +9,7 @@
         ffmpeg
         rustup
         jdk21
+        beammp-launcher
     ];
 
     programs.git = {
