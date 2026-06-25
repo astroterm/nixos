@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, fenix, ... }:
 
 {
     home.packages = with pkgs; [
@@ -7,9 +7,10 @@
         nixd
         parted
         ffmpeg
-        rustup
+        # rustup
         jdk21
         beammp-launcher
+        fenix.packages.${pkgs.system}.complete.toolchain
     ];
 
     programs.git = {
@@ -42,6 +43,13 @@
     programs.yazi = {
         enable = true;
         enableNushellIntegration = true;
+        plugins = with pkgs.yaziPlugins; {
+            smart-enter = smart-enter;
+            smart-filter = smart-filter;
+            mime-ext = mime-ext;
+            ouch = ouch;
+            nord = nord;
+        };
     };
 
     programs.gcc.enable = true;
