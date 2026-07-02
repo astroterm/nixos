@@ -53,4 +53,5 @@
     };
 
     programs.gcc.enable = true;
+    programs.rclone.enable = true;
 }
