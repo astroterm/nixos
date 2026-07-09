@@ -13,6 +13,7 @@
         handbrake
         gnome-clocks
         kdePackages.qt6ct
+        r2modman
     ];
 
     programs.wezterm = {
