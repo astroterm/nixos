@@ -61,7 +61,7 @@
                     ruff.enable = true;
                     yamlls.enable = true;
                     clangd.enable = true;
-                    rust-analyzer = {
+                    rust_analyzer = {
                         enable = true;
                         installCargo = false;
                         installRustc = false;
