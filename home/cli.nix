@@ -7,7 +7,7 @@
         nixd
         parted
         ffmpeg
-        # rustup
+        yt-dlp
         jdk21
         beammp-launcher
         fenix.packages.${pkgs.system}.complete.toolchain
