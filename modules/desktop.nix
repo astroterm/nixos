@@ -12,6 +12,5 @@
         enable = true;
         useNautilus = true;
     };
-    programs.dms-shell.enable = true;
 }
 

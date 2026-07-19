@@ -10,6 +10,7 @@
         yt-dlp
         jdk21
         beammp-launcher
+        wl-clipboard
         fenix.packages.${pkgs.system}.complete.toolchain
     ];
 

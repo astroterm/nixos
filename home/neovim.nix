@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
     programs.nixvim = {
@@ -20,6 +20,12 @@
             virtual_text = true;
             underline = true;
             signs = true;
+        };
+
+        highlightOverride = {
+            "@variable" = {
+                bold = false;
+            };
         };
 
         plugins = {
@@ -61,6 +67,7 @@
                     ruff.enable = true;
                     yamlls.enable = true;
                     clangd.enable = true;
+                    csharp_ls.enable = true;
                     rust_analyzer = {
                         enable = true;
                         installCargo = false;
@@ -68,8 +75,56 @@
                     };
                 };
             };
-        };
+            treesitter = {
+                enable = true;
 
+                settings = {
+                    highlight.enable = true;
+                    indent.enable = true;
+                };
+
+                grammarPackages =
+                    with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+                        rust python nix
+                        c cpp c_sharp
+                        json yaml xml 
+                    ];
+            };
+            mini = {
+                enable = true;
+                modules = {
+                    
+                };
+            };
+            transparent = {
+                enable = true;
+                callSetup = true;
+                settings = {
+                    extra_groups = [
+                        "NormalNC"
+                        "NormalFloat"
+                        "FloatBorder"
+                        "SignColumn"
+                        "EndOfBuffer"
+
+                        "SnacksNormal"
+                        "SnacksNormalNC"
+                        "SnacksWinBar"
+                        "SnacksPicker"
+                        "SnacksPickerBorder"
+                        "SnacksPickerInput"
+                        "SnacksPickerInputBorder"
+                        "SnacksPickerList"
+                        "SnacksPickerListBorder"
+                        "SnacksPickerPreview"
+                        "SnacksPickerPreviewBorder"
+                    ];
+                };
+            }; 
+            smear-cursor = {
+                enable = true;
+            };
+        };
         keymaps = [
             {
                 mode = "n";
@@ -91,6 +146,20 @@
                 key = "<C-l>";
                 action = "<C-w>l";
             }
+
+            {
+                mode = "v";
+                key = "<Tab>";
+                action = ">gv";
+                options.desc = "Indent selection";
+            }
+            {
+                mode = "v";
+                key = "<S-Tab>";
+                action = "<gv";
+                options.desc = "Deindent selection";
+            }
+
         ];
         userCommands = {
             Files.command = "lua Snacks.picker.files()";
