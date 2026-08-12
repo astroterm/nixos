@@ -6,7 +6,8 @@
         python315
         nixd
         parted
-        ffmpeg
+        ffmpeg-full
+        imagemagick
         yt-dlp
         jdk21
         beammp-launcher
@@ -51,6 +52,18 @@
             ouch = ouch;
             nord = nord;
         };
+        extraPackages = with pkgs; [
+            ffmpeg
+            p7zip
+            jq
+            poppler
+            fd
+            ripgrep
+            fzf
+            zoxide
+            resvg
+            imagemagick
+        ];
     };
 
     programs.gcc.enable = true;

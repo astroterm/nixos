@@ -228,6 +228,3 @@ binds {
         spawn "dms" "ipc" "call" "lock" "lock";
     }
 }
-
-include "dms/binds.kdl"
-include "dms/cursor.kdl"

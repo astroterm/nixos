@@ -13,6 +13,7 @@
         ./modules/packages.nix
         ./modules/gaming.nix
         ./modules/desktop.nix
+        ./modules/programs.nix
     ];
 
     # Bootloader.
@@ -84,6 +85,10 @@
             greetd.u2fAuth = true;
             sudo.u2fAuth = true;
             dms-greeter.u2fAuth = true;
+            "dankshell-u2f".text = ''
+                auth     required ${pkgs.pam_u2f}/lib/security/pam_u2f.so cue
+                account  required pam_permit.so
+            '';
         };
 
     };

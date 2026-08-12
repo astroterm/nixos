@@ -10,6 +10,10 @@
             url = "github:AvengeMedia/DankMaterialShell";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        dcal = {
+            url = "github:AvengeMedia/dankcalendar";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
         fenix = {
             url = "github:nix-community/fenix";
             inputs.nixpkgs.follows = "nixpkgs";
@@ -22,12 +26,14 @@
         };
     };
 
-    outputs = { nixpkgs, home-manager, fenix, nixvim, dms, wezterm, ... }: {
+    outputs = { nixpkgs, home-manager, fenix, nixvim, dms, dcal, wezterm, ... }: {
         nixosConfigurations.neptune = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
 
             modules = [
                 ./configuration.nix
+                dms.nixosModules.dank-material-shell
+                dcal.nixosModules.dank-calendar
 
                 home-manager.nixosModules.home-manager
                 {
@@ -39,7 +45,6 @@
                     };
                     home-manager.sharedModules = [
                         nixvim.homeModules.nixvim
-                        dms.homeModules.dank-material-shell
                     ];
                 }
             ];

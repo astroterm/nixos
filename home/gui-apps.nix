@@ -14,6 +14,9 @@
         gnome-clocks
         kdePackages.qt6ct
         r2modman
+        yubikey-manager
+        yubioath-flutter
+        jetbrains.datagrip
     ];
 
     programs.wezterm = {
@@ -26,7 +29,7 @@
             window_decorations = "NONE";
             enable_tab_bar = false;
 
-            window_background_opacity = 0.8;
+            window_background_opacity = 1;
             wayland_window_background_blur = true;
 
             font = pkgs.lib.mkLuaInline ''
@@ -50,5 +53,5 @@
         ];
     };
 
-    # programs.prismlauncher.enable = true;
+    
 }
