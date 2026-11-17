@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
     imports =
@@ -44,7 +44,7 @@
     users.users.hdo = {
         isNormalUser = true;
         description = "Henry Do";
-        extraGroups = [ "networkmanager" "wheel" ];
+        extraGroups = [ "networkmanager" "wheel" "wireshark" ];
         packages = [];
     };
 
@@ -68,6 +68,25 @@
         motherboard = "amd";
     };
 
+    services.tailscale = {
+        enable = true;
+        useRoutingFeatures = "client";
+    };
+
+    networking.nftables.enable = true;
+    networking.firewall = {
+        enable = true;
+        trustedInterfaces = [ config.services.tailscale.interfaceName ];
+        allowedUDPPorts = [ config.services.tailscale.port ];
+    };
+
+    systemd.services.tailscaled.serviceConfig.Environment = [
+        "TS_DEBUG_FIREWALL_MODE=nftables"
+    ];
+
+    systemd.network.wait-online.enable = false;
+    boot.initrd.systemd.network.wait-online.enable = false;
+
     services.pipewire = {
         enable = true;
         alsa.enable = true;
@@ -75,23 +94,32 @@
         pulse.enable=true;
     };
 
-    security.pam = {
-        u2f = {
-            enable = true;
-            control = "sufficient";
-        };
-        services = {
-            login.u2fAuth = true;
-            greetd.u2fAuth = true;
-            sudo.u2fAuth = true;
-            dms-greeter.u2fAuth = true;
-            "dankshell-u2f".text = ''
-                auth     required ${pkgs.pam_u2f}/lib/security/pam_u2f.so cue
-                account  required pam_permit.so
-            '';
-        };
+    services.udisks2.enable = true;
 
+    hardware.bluetooth = {
+        enable = true;
+        powerOnBoot = false;
     };
+
+    services.blueman.enable = true;
+
+    # security.pam = {
+    #     u2f = {
+    #         enable = true;
+    #         control = "sufficient";
+    #     };
+    #     services = {
+    #         login.u2fAuth = true;
+    #         greetd.u2fAuth = true;
+    #         sudo.u2fAuth = true;
+    #         dms-greeter.u2fAuth = true;
+    #         "dankshell-u2f".text = ''
+    #             auth     required ${pkgs.pam_u2f}/lib/security/pam_u2f.so cue
+    #             account  required pam_permit.so
+    #         '';
+    #     };
+
+    # };
 
     hardware.graphics = {
         enable = true;

@@ -228,3 +228,8 @@ binds {
         spawn "dms" "ipc" "call" "lock" "lock";
     }
 }
+
+cursor {
+    xcursor-theme "Bibata-Modern-Classic"
+    xcursor-size 24
+}

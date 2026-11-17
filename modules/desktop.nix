@@ -16,10 +16,10 @@
     programs.dank-material-shell = {
         enable = true;
         systemd.enable = true;
-        lockscreen.securityKey = {
-            enable = true;
-            moduleArgs = [ "cue" "userpresence=1" ];
-        };
+        # lockscreen.securityKey = {
+        #     enable = true;
+        #     moduleArgs = [ "cue" "userpresence=1" ];
+        # };
     };
 
     programs.dank-calendar.enable = true;
