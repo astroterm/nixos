@@ -11,6 +11,7 @@
         cli/config.nix
         gui/config.nix
         k8s/config.nix
+        srv/config.nix
         niri/niri.nix
     ];
 
